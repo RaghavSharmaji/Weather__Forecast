@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder #to conveert catogerical data int
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor #model for classification and regression tasks
 from sklearn.metrics import mean_squared_error #to measure the accuracy of aour predictions
 from datetime import datetime, timedelta #to handle date and time
-
+from pathlib import Path
 import pytz 
 import os
 
@@ -117,7 +117,8 @@ def weather_view(request):
     current_weather = get_current_weather(city)
     
     # Load historical data
-    csv_path=os.path.join('C:\\Users\\Radhe\\OneDrive\\Desktop\\WeatherPridection\\weather.csv')
+    BASE_DIR =Path(__file__).resolve().parent.parent
+    csv_path=BASE_DIR / 'weather.csv'
     historical_data = read_historical_data(csv_path)
     
     # Prepare and train the rain prediction model
