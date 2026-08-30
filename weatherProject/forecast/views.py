@@ -10,11 +10,12 @@ from sklearn.preprocessing import LabelEncoder #to conveert catogerical data int
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor #model for classification and regression tasks
 from sklearn.metrics import mean_squared_error #to measure the accuracy of aour predictions
 from datetime import datetime, timedelta #to handle date and time
+
 import pytz 
 import os
 
 
-API_KEY = '1d635ba532fc6e9d0fe76235251136d3' #replace with your actual API key
+API_KEY = os.environ.get("OPENWEATHER_API_KEY") #replace with your actual API key
 BASE_URL = 'https://api.openweathermap.org/data/2.5/' #base url for making API requests
 
 
