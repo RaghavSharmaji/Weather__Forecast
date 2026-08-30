@@ -117,7 +117,8 @@ def weather_view(request):
     current_weather = get_current_weather(city)
     
     # Load historical data
-    BASE_DIR =Path(__file__).resolve().parent.parent
+    BASE_DIR =BASE_DIR = Path(__file__).resolve().parents[2]
+    csv_path = BASE_DIR / 'weather.csv'
     csv_path=BASE_DIR / 'weather.csv'
     historical_data = read_historical_data(csv_path)
     
